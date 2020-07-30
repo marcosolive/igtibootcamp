@@ -1,17 +1,21 @@
 import React,{useState} from "react";
-import {StyleSheet, TextInput, Text} from "react-native";
+import {StyleSheet, TextInput, Text, View} from "react-native";
+import { AntDesign } from '@expo/vector-icons';
+import GenericInput from './GenericInput'
 
 const SearchInput = (props) => {
-   const [stateValor, setStateValor] = useState(props.initialValue);
-    const onChange=(text) =>{
-        setStateValor(text);
-        props.onChange(text);
+   
+    const onChange = (text)=>{
+        if (props.onChange)
+            props.onChange(text);
     }
+    
     return (
         <>
-        
-        <Text>{props.label}</Text>
-        <TextInput value={stateValor} style={styles.textInputStyle} onChangeText={onChange}/>
+        <View style={styles.viewStyle}>
+        <AntDesign style={styles.iconStyle} name="search1" size={24} color="black" />
+        <GenericInput initialValue={props.initialValue} style={styles.inputStyle} onChangeText={onChange}/>
+        </View>
         </>
     )
 }
@@ -19,7 +23,15 @@ const SearchInput = (props) => {
 export default SearchInput;
 
 const styles = StyleSheet.create({
-    textInputStyle:{
+    viewStyle:{
+        flexDirection: 'row',
+        borderRadius: 50,
         backgroundColor:"#d1cdcd"
+    },
+    inputStyle:{
+        marginLeft: 5
+    },
+    iconStyle:{
+        alignSelf: 'center'
     }
 })

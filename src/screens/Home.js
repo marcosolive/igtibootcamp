@@ -1,28 +1,31 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native"
-import Input from "../components/form/Input"
+import React from "react";
+import {Text, View, StyleSheet} from 'react-native'
+
 
 
 const HomeScreen = () => {
-    const [stateNome, setStateNome] = useState("");
-    const [stateTel, setStateTel] = useState("");
-
+  
     return (
         <>
-            <View style={styles.viewStyles}>
-                <Input label="Nome" onChange={(text) => setStateNome(text)} initialValue={""} ></Input>
-                <Input label="Telefone" onChange={(text) => setStateTel(text)} initialValue={""} ></Input>
+        
+            <View style={styles.viewStyle}>
+                <Text>
+                    Séries Inc.
+                </Text>
             </View>
+        
         </>
     )
 }
 
-export default HomeScreen;
-
 const styles = StyleSheet.create({
-    viewStyles: {
-        flex: 1,
-        alignItems: "stretch",
-        justifyContent: "flex-start"
+    viewStyle:{
+        flex:1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: "#fffaaa"
+
     }
 })
+
+export default HomeScreen;
